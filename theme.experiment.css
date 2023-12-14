@@ -1,0 +1,289 @@
+/* CSS Variables detailed here: https://docs.obsidian.md/Reference/CSS+variables/CSS+variables */
+
+/* Customize Global Setup */
+
+.markdown-source-view,
+.markdown-preview-view {
+	max-width: 1600px;
+	margin: auto;
+}
+
+/* 0. Default Theme */
+
+body {
+	--radius-s: 0px;
+	--radius-m: 0px;
+	--radius-l: 0px;
+	--input-radius: 0px;
+	--tab-radius-active: 0px;
+	--checkbox-radius: 0px;
+	--toggle-radius: 0px;
+	--toggle-thumb-radius: 0px;
+	--slider-thumb-radius: 0px;
+}
+
+.workspace-tab-header.is-active::before,
+.workspace-tab-header.is-active::after {
+	display: none;
+}
+
+svg * {
+	stroke-linecap: square;
+	stroke-linejoin: miter;
+	rx: 0;
+	ry: 0;
+}
+
+.menu {
+	padding: var(--size-2-1);
+}
+
+.menu-item {
+	padding: var(--size-4-1) var(--size-4-2);
+}
+
+.menu-separator {
+	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
+}
+
+/* 1. Colours! Overriding both themes */
+.theme-dark {
+	--color-magenta: #ef99ef;
+	--color-green: #99ef99;
+	--color-aqua: #99efef;
+	--color-yellow: #efef99;
+	--color-purple: #bc66bc;
+	--color-blue: #418FDD;
+	--color-orange: #ffa600;
+	--color-red: #ff1600;
+
+	--color-black: #000000;
+	--color-gray-5: #111111;
+	--color-gray-4: #333333;
+	--color-gray-3: #666666;
+	--color-gray-2: #999999;
+	--color-gray-1: #aaaaaa;
+	--color-gray-0: #eeeeee;
+	--color-white: #ffffff;
+
+	--background-primary: #080808;
+	--background-primary-alt: #040404;
+	--background-secondary: #000000;
+	--background-secondary-alt: #200d30;
+
+	--text-normal: var(--color-white);
+	--text-muted: var(--color-purple);
+	--text-accent: var(--color-aqua);
+	--text-on-accent: var(--color-white);
+
+	/* obsidian dark defaults (overriding for light) */
+	--text-selection: rgba(0, 122, 255, 0.2);
+	--text-on-accent: rgba(0, 0, 0, 0.8);
+	--interactive-accent-rgb: 72, 54, 153;
+	--scrollbar-active-thumb-bg: rgba(255, 255, 255, 0.2);
+	--scrollbar-bg: rgba(255, 255, 255, 0.05);
+	--scrollbar-thumb-bg: rgba(255, 255, 255, 0.1);
+}
+
+.theme-light {
+	--color-magenta: #f134b2;
+	--color-purple: #611861;
+	--color-blue: #114d88;
+	--color-aqua: #37aaaa;
+	--color-green: #206620;
+	--color-yellow: #e2be4a;
+	--color-orange: #e09d21;
+	--color-red: #8b1e14;
+	--color-brown: #3d271d;
+
+	--color-black: #000000;
+	--color-gray-5: #111111;
+	--color-gray-4: #333333;
+	--color-gray-3: #666666;
+	--color-gray-2: #999999;
+	--color-gray-1: #aaaaaa;
+	--color-white: #ffffff;
+
+	--background-primary: var(--color-white);
+	--background-primary-alt: var(--color-gray-5);
+	--background-secondary: var(--color-gray-0);
+	--background-secondary-alt: var(--color-aqua);
+
+	--text-normal: var(--color-black);
+	--text-muted: var(--color-purple);
+	--text-accent: var(--color-yellow);
+	--text-on-accent: var(--color-black);
+}
+
+/* 2. UI */
+
+.titlebar-inner {
+	color: var(--color-normal);
+}
+
+.titlebar-button {
+	opacity: 1;
+}
+
+.suggestion-item.is-selected {
+	background-color: var(--text-selection);
+}
+
+/* 3. Editor and preview */
+.cm-s-obsidian,
+.markdown-preview-view {
+	color: var(--text-normal);
+}
+
+
+/* 3.1. Headers */
+
+.cm-s-obsidian .cm-header  {
+	/* font-weight: 600; */
+	/* overflow: visible; */
+	/* color: var(--color-green); */
+}
+
+.markdown-source-view .HyperMD-header-1 .cm-header-1 {
+	color: var(--color-purple);
+}
+.markdown-source-view .HyperMD-header-2 .cm-header-2 {
+	color: var(--color-blue);
+}
+.markdown-source-view .HyperMD-header-3 .cm-header-3 {
+    color: var(--color-aqua);
+}
+
+.markdown-source-view .HyperMD-header-4 .cm-header-4 {
+	color: var(--color-green);
+}
+
+.markdown-source-view .HyperMD-header-5 .cm-header-5 {
+	color: var(--color-yellow);
+}
+
+.markdown-source-view .HyperMD-header-6 .cm-header-6 {
+	color: var(--color-orange);
+}
+
+.markdown-preview-view h6 {
+	color: var(--color-aqua);
+}
+
+/* 3.3. External links */
+.cm-s-obsidian span.cm-link,
+a {
+	color: var(--color-purple);
+}
+
+.cm-s-obsidian .cm-formatting-link+.cm-formatting-link-string+.cm-url,
+.cm-s-obsidian .cm-string.cm-url,
+.cm-s-obsidian span.cm-url {
+	color: var(--color-white);
+}
+
+.cm-s-obsidian .cm-string.cm-url.cm-hmd-footref2 {
+	color: var(--color-green);
+}
+
+/* 3.4. Internal links */
+.cm-s-obsidian span.cm-hashtag,
+.cm-s-obsidian span.cm-hmd-internal-link,
+a.internal-link,
+a.tag {
+	color: var(--color-green);
+}
+
+/* 3.5. blockquotes, embeds, tables */
+.cm-s-obsidian span.cm-quote {
+	color: var(--color-aqua);
+}
+
+.cm-s-obsidian span.cm-builtin,
+.cm-s-obsidian span.cm-hr {
+	color: var(--color-green);
+}
+
+/* 3.6. Code */
+.cm-s-obsidian span.cm-inline-code,
+code {
+	color: var(--color-yellow);
+}
+
+.markdown-preview-view code {
+	color: var(--color-yellow);
+}
+
+.cm-s-obsidian pre.HyperMD-codeblock {
+	color: var(--color-yellow);
+}
+
+.markdown-source-view {
+	/* color: #ffffff; */
+}
+
+.HyperMD-codeblock {
+	border-left: 1rem solid var(--color-white);
+}
+.HyperMD-codeblock.HyperMD-codeblock-begin.HyperMD-codeblock-begin-bg.HyperMD-codeblock-bg.cm-line {
+	/* border: 1px solid var(--color-white); */
+	background: var(--color-gray-5);
+	color: #ffaa00;
+}
+.HyperMD-codeblock.HyperMD-codeblock-begin.HyperMD-codeblock-begin-bg.HyperMD-codeblock-bg.cm-line span.code-block-flair {
+	margin-top: 0;
+	padding-top: 0;
+	color: #55dd55;
+}
+.HyperMD-codeblock.HyperMD-codeblock-bg.cm-line {
+	background: var(--color-gray-4);
+}
+.HyperMD-codeblock.HyperMD-codeblock-bg.cm-line span.cm-hmd-codeblock {
+	color: #var(--color-gray-2);
+}
+.HyperMD-codeblock.HyperMD-codeblock-bg.HyperMD-codeblock-end.HyperMD-codeblock-end-bg.cm-line {
+	/* border: 1px solid var(--color-white); */
+	background: var(--color-gray-5);
+	color: #ffaa00;
+}
+
+/* 4. Graph view */
+.graph-view.color-fill {
+	/* default */
+}
+
+.graph-view.color-fill-unresolved {
+	color: var(--color-white);
+	opacity: 0.7;
+}
+
+.graph-view.color-line {
+	/* color: var(--color-blue); */
+}
+
+.graph-view.color-arrow {
+	color: var(--color-purple);
+	opacity: 1;
+}
+
+.graph-view.color-text {
+	color: var(--color-white);
+}
+
+.graph-view.color-fill-highlight {
+	color: var(--color-blue);
+}
+
+.graph-view.color-line-highlight {
+	color: var(--color-blue);
+}
+
+.theme-light .graph-view.color-fill-attachment,
+.theme-dark .graph-view.color-fill-attachment {
+	color: var(--color-blue);
+}
+
+.theme-dark .graph-view.color-fill-tag,
+.theme-light .graph-view.color-fill-tag {
+	color: var(--color-yellow);
+}
